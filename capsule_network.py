@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from torch import nn
 import numpy as np
 
-BATCH_SIZE = 100
+BATCH_SIZE = 4
 NUM_CLASSES = 10
 NUM_EPOCHS = 500
 NUM_ROUTING_ITERATIONS = 3
@@ -145,6 +145,7 @@ if __name__ == "__main__":
     model = CapsuleNet()
     # model.load_state_dict(torch.load('epochs/epoch_327.pt'))
     model.cuda()
+    print(model)
 
     print("# parameters:", sum(param.numel() for param in model.parameters()))
 
@@ -261,3 +262,4 @@ if __name__ == "__main__":
     engine.hooks['on_end_epoch'] = on_end_epoch
 
     engine.train(processor, get_iterator(True), maxepoch=NUM_EPOCHS, optimizer=optimizer)
+

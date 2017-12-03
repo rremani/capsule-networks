@@ -1,4 +1,5 @@
 .idea/
 data/
 epochs/*
+best/*
 !epochs/.gitkeep
